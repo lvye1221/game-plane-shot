@@ -55,8 +55,8 @@ var gameEngine = {
 	loading: function(loadCallBack) {
 		
 		
-		loadCallBack && loadCallBack(); 
-		return ;
+//		loadCallBack && loadCallBack(); 
+//		return ;
 				
 		//显示logo
 		var logo = document.createElement("div");
@@ -74,9 +74,11 @@ var gameEngine = {
 		var timer = setInterval(function(){
 			
 			load.style.background = "url(" + loadImgs[index%3] + ") no-repeat";
+			load.style.backgroundSize = "cover";
 		
 			//切换图片
 			index++;
+
 			
 			//当运动到index==5时, 则游戏加载结束
 			if (index >= 5) {
@@ -208,7 +210,7 @@ var gameEngine = {
 					gameEngine.isCrashMyPlane = true;
 					
 					myPlane.boom(function() {
-						alert("Game Over!");
+						alert("游戏结束!");
 						
 						window.location.reload();
 					});

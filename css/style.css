@@ -23,9 +23,10 @@ a {text-decoration: none;}
 	border: 1px solid black;
 	margin: 0 auto;
 	background: url(../img/bg.jpg);
+	background-size: cover;
+	position: fixed;
 	position: relative;
 	
-	border: 1px solid red;
 }
 
 .main #list {
@@ -55,21 +56,26 @@ a {text-decoration: none;}
 
 /************ 游戏加载界面  **************/
 .logo {
-	width: 428px;
-	height: 104px;
+	width: 6rem;
+	height: 1.4rem;
 	background: url(../img/logo.png) no-repeat;
+	background-size: cover;
 	position: absolute;
-	left: 26px; 
+	left: 50%; 
 	top: 25%;
+	margin-left: -3rem;
 }
 
 .loading {
-	width: 200px;
-	height: 42px;
+	width: 4.5rem;
+	height: 1rem;
 	background: url(../img/loading1.png) no-repeat;
+	background-size: cover;
 	position: absolute;
-	left: 140px; 
-	top: 60%;
+	left: 50%; 
+	top: 50%;
+	margin-left: -2.5rem;
+	margin-top: -0.5rem;
 }
 
 
