@@ -82,20 +82,24 @@ var myPlane = {
 			
 		// 注意得用这个方式来添加事件
 		this.ele.addEventListener('touchstart', function(e) {
-			console.log("ontouchstart");
+//			console.log("ontouchstart");
 			
 			e = e.touches[0];
 			
 			var disX = e.clientX - self.ele.offsetLeft;
 			var disY = e.clientY - self.ele.offsetTop;
 			
-			document.addEventListener('touchmove', function(e) {
-				e = e.touches[0];
+			document.addEventListener('touchmove', function(evt) {
+				
+				evt.preventDefault();
+				
+				
+				e = evt.touches[0];
 				
 				var x = e.clientX - gameEngine.ele.offsetLeft - disX;
 				var y = e.clientY - disY;
 				
-				console.log("ontouchmove：", x, y);
+//				console.log("ontouchmove：", x, y);
 				
 				if (x < 0) {
 					x = 0;
@@ -107,6 +111,7 @@ var myPlane = {
 				
 				self.ele.style.left = x + "px";
 				self.ele.style.top = y + "px";
+				
 			});
 			
 			document.addEventListener('touchup', function() {

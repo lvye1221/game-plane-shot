@@ -51,6 +51,15 @@ onload = function() {
 			//开始启动游戏,进入加载游戏界面
 
 			gameEngine.start();
+			
+			document.addEventListener("touchstart", function(evt) {
+				console.log("document.ontouchstart false!");
+				
+				evt.preventDefault();
+							
+				return false;
+			});
+
 		}
 	}
 	

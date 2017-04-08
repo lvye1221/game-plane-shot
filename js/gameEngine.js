@@ -1,4 +1,5 @@
 
+
 //游戏引擎(对象)
 /*
  * 开始游戏, 加载游戏, 进入游戏主界面
@@ -20,6 +21,7 @@ var gameEngine = {
 	//开始游戏start
 	start: function() {
 		var self = this;
+		
 		
 		this.ele = document.getElementById("main_body");
 		
