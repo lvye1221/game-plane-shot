@@ -24,6 +24,9 @@ var myPlane = {
 		//现在可以开始拖拽飞机了
 		this.startDrag();
 		
+		// 启用触摸
+		this.startTouch();
+		
 		return this;
 	},
 	
@@ -67,6 +70,50 @@ var myPlane = {
 				document.onmouseup = null;
 			}
 		}
+	},
+	
+	
+	// 触摸拖拽
+	startTouch: function() {
+
+		var self = this;
+		
+		console.log("startTouch");
+			
+		// 注意得用这个方式来添加事件
+		this.ele.addEventListener('touchstart', function(e) {
+			console.log("ontouchstart");
+			
+			e = e.touches[0];
+			
+			var disX = e.clientX - self.ele.offsetLeft;
+			var disY = e.clientY - self.ele.offsetTop;
+			
+			document.addEventListener('touchmove', function(e) {
+				e = e.touches[0];
+				
+				var x = e.clientX - gameEngine.ele.offsetLeft - disX;
+				var y = e.clientY - disY;
+				
+				console.log("ontouchmove：", x, y);
+				
+				if (x < 0) {
+					x = 0;
+				}
+				
+				if (x > gameEngine.ele.offsetWidth - self.ele.offsetWidth) {
+					x = gameEngine.ele.offsetWidth - self.ele.offsetWidth;
+				}
+				
+				self.ele.style.left = x + "px";
+				self.ele.style.top = y + "px";
+			});
+			
+			document.addEventListener('touchup', function() {
+				document.removeEventListener('touchmove');
+				document.removeEventListener('touchup');
+			});
+		});
 	},
 	
 	//爆炸

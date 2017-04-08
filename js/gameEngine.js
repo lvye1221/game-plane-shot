@@ -53,6 +53,10 @@ var gameEngine = {
 	},
 	
 	loading: function(loadCallBack) {
+		
+		
+		loadCallBack && loadCallBack(); 
+		return ;
 				
 		//显示logo
 		var logo = document.createElement("div");
