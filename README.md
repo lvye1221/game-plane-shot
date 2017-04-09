@@ -58,3 +58,4 @@ startTouch: function() {
 
 
 
+# 移动端页面禁止拖动页面 #
